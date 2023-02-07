@@ -1,0 +1,15 @@
+C:\Users\Intel\Desktop\ProjetoSenai\bin\Debug\net7.0\ProjetoSenai.exe
+C:\Users\Intel\Desktop\ProjetoSenai\bin\Debug\net7.0\ProjetoSenai.deps.json
+C:\Users\Intel\Desktop\ProjetoSenai\bin\Debug\net7.0\ProjetoSenai.runtimeconfig.json
+C:\Users\Intel\Desktop\ProjetoSenai\bin\Debug\net7.0\ProjetoSenai.dll
+C:\Users\Intel\Desktop\ProjetoSenai\bin\Debug\net7.0\ProjetoSenai.pdb
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.csproj.AssemblyReference.cache
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.AssemblyInfoInputs.cache
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.AssemblyInfo.cs
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.csproj.CoreCompileInputs.cache
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.dll
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\refint\ProjetoSenai.dll
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.pdb
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ProjetoSenai.genruntimeconfig.cache
+C:\Users\Intel\Desktop\ProjetoSenai\obj\Debug\net7.0\ref\ProjetoSenai.dll

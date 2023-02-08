@@ -2,8 +2,7 @@ using ProjetoSenai.interfaces;
 
 namespace ProjetoSenai.Classes
 {
-    public class Pessoas : IPessoas
-
+    public abstract class Pessoas : IPessoas
     {
         public string ?nome { get; set; }
 
@@ -11,9 +10,7 @@ namespace ProjetoSenai.Classes
 
         public float ?rendimento { get; set; }
 
-        public float PagaImposto(float rendimento)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract float PagaImposto(float rendimento);
+
     }
 }

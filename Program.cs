@@ -27,5 +27,7 @@ CNPJ: {obj_pJ.cnpj}
 razao social: {obj_pJ.razaoSocial}
 Rendimento: {obj_pJ.rendimento}");
 
+Console.WriteLine($"***************************************************");
 
 
+Pessoas obj_Pessoas = new Pessoas();

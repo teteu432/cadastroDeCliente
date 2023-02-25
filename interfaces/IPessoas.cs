@@ -2,7 +2,7 @@ namespace ProjetoSenai.interfaces
 {
     public interface IPessoas
     {
-         float PagaImposto(float rendimento);
+         float PagarImposto(float rendimento);
          
     }
 }

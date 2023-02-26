@@ -1,6 +1,6 @@
 ﻿using ProjetoSenai.Classes;
  
-
+Console.Clear();
 Console.WriteLine(@$"
 =====================================================================
 |                    Bem vindo ao sistema de cadastro de            |  
@@ -9,6 +9,8 @@ Console.WriteLine(@$"
 ");
 BarraCarregamento("Carregando", 120);
 
+List<PessoaFisica> listaPf = new List<PessoaFisica>();
+
 
 string? opcao;
 
@@ -16,13 +18,13 @@ do
 {
     Console.Clear();
     Console.WriteLine(@$"
-==================================================================
-|                    Escolha uma das opções abaixo               | 
-|----------------------------------------------------------------| 
-|                   1 - Pessoa Fisica                            |   
-|                   2 - Pessoa Juridica                          |
-|                   0 - sair                                     |       
-==================================================================
+============================================================
+|                 Escolha uma das opções abaixo            | 
+|----------------------------------------------------------| 
+|                1 - Pessoa Fisica                         |   
+|                2 - Pessoa Juridica                       |
+|                0 - sair                                  |       
+============================================================
 ");
 
 opcao = Console.ReadLine();
@@ -30,38 +32,137 @@ opcao = Console.ReadLine();
 switch (opcao)
 {
     case "1":
-    Console.Clear();
-    PessoaFisica obj_PF = new PessoaFisica();
-    Endereco novoEnd = new Endereco();
     PessoaFisica metodoPF = new PessoaFisica();
 
-    obj_PF.nome = "Jaiminho";
-    obj_PF.datanascimento = "23/08/1947";
-    obj_PF.cpf = "40028922019";
-    obj_PF.rendimento = 2400.00f;
 
-    novoEnd.logradouro = "Rua tangamandapio";
-    novoEnd.numero = 123;
-    novoEnd.Complemento = "escola Senai";
-    novoEnd.endComercial = true;
-
-    obj_PF.endereco = novoEnd;
-
-    Console.WriteLine(@$"
-    Nome: {obj_PF.nome}
-    Data de nascimento: {obj_PF.datanascimento}
-    cpf: {obj_PF.cpf}
-    Rendimento: {obj_PF.rendimento}
-    Logradouro: {obj_PF.endereco.logradouro}
-    número: {obj_PF.endereco.numero}
-    complemento: {obj_PF.endereco.Complemento}
-    endereço comercial: {((bool)(obj_PF.endereco.endComercial) ? "sim": "não")}
-    Maior de idade? {(metodoPF.validarDataNascimento(obj_PF.datanascimento) ? "sim": "não")}
-    Taxa de imposto a ser paga: {metodoPF.PagarImposto(obj_PF.rendimento).ToString("C")}
+    string? opcaoPf;
+    do
+    {
+         Console.Clear();
+        Console.WriteLine(@$"
+=============================================================
+|                Escolha uma das opções abaixo              | 
+|-----------------------------------------------------------| 
+|                1 - Cadastra Pessoa Fisica                 |   
+|                2 - mostrar Pessoa fisica                  |
+|                0 - Voltar ao menu anterior                |       
+=============================================================
 ");
-    Console.WriteLine($"Aperte 'Enter' para continuar");
-    Console.ReadLine();
-    
+        opcaoPf = Console.ReadLine();
+
+        switch (opcaoPf)
+        {
+            case "1":          
+                Console.Clear();
+
+                PessoaFisica novaPf = new PessoaFisica();
+                Endereco novoEnd = new Endereco();
+                
+                Console.WriteLine($"Digite o nome da pessoa fisica que deseja cadastrar");
+                novaPf.nome = Console.ReadLine();
+                
+                bool dataValida;
+                do
+                {
+                Console.WriteLine($"Digite a data de nascimento Ex.: DD/MM/AAAA");
+                string dataNasc = Console.ReadLine(); 
+                
+                dataValida = metodoPF.validarDataNascimento(dataNasc);
+
+                if (dataValida)
+                {
+                    novaPf.datanascimento = dataNasc;
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine($"data de validade inválida, por favor digite unma data de válida");
+                    Console.ResetColor();
+
+                }
+                } while (dataValida == false);         
+                
+                Console.WriteLine($"Digite o número do CPF:");
+                novaPf.cpf = Console.ReadLine();
+
+                Console.WriteLine($"Digite o rendimento mensal (apenas números)");
+                novaPf.rendimento = float.Parse(Console.ReadLine());
+               
+                Console.WriteLine($"Digite o logadouro");
+                novoEnd.logradouro = Console.ReadLine();
+                
+                Console.WriteLine($"digite o número:");               
+                novoEnd.numero = int.Parse(Console.ReadLine());
+                
+                Console.WriteLine($"digite o complemento (Aperte ENTER para vazio)");
+                novoEnd.Complemento = Console.ReadLine();
+                
+                Console.WriteLine($"Esse endereço é comercial ? S ou N ");
+                string endCom = Console.ReadLine().ToUpper();
+                if (endCom == "S")
+                {
+                    novoEnd.endComercial = true;
+                }
+                else{
+                    novoEnd.endComercial = false;
+                }                
+                novaPf.endereco = novoEnd;
+                listaPf.Add(novaPf);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"Cadastro realizado ccom sucesso !!!");
+                Console.ResetColor();
+
+
+                Console.Clear();
+                break;
+            case "2":
+               Console.Clear();
+               if (listaPf.Count > 0)
+               {
+                 foreach (PessoaFisica cadaPessoa in listaPf)
+                 {
+                
+                Console.Clear();
+                Console.WriteLine(@$"
+                 Nome: {cadaPessoa.nome}
+                 Data de nascimento: {cadaPessoa.datanascimento}
+                 cpf: {cadaPessoa.cpf}
+                 Rendimento: {cadaPessoa.rendimento.ToString("C")}
+                 Logradouro: {cadaPessoa.endereco.logradouro}
+                 número: {cadaPessoa.endereco.numero}
+                 complemento: {cadaPessoa.endereco.Complemento}
+                 endereço comercial: {((bool)(cadaPessoa.endereco.endComercial)? "sim": "não")}
+                 Taxa de imposto a ser paga: {metodoPF.PagarImposto(cadaPessoa.rendimento).ToString("C")}
+                 ");
+                Console.WriteLine($"Aperte 'Enter' para continuar");
+                Console.ReadLine();
+                 }
+               }
+               else
+               {
+                  Console.WriteLine($"Lista vazia!!!");
+                  Thread.Sleep(3000);
+                  
+               }
+
+                 break;
+            case "0":
+            
+                
+            
+                break;
+            default:
+        Console.Clear();
+        Console.WriteLine($"Opção inválida, por favor digite outra opção.");
+        Thread.Sleep(2500);
+                break;
+        }
+        
+
+    } while (opcaoPf != "0");
+
+  
     
         break;
 

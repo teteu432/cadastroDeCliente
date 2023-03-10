@@ -3,11 +3,13 @@ using ProjetoSenai.interfaces;
 
 namespace ProjetoSenai.Classes
 {
-    public  class PessoaJuridica : Pessoas, IPessoaJuridica
+    public  class PessoaJuridica : Pessoa, IPessoaJuridica
     {
         public string ?cnpj { get; set; }
 
         public string ?razaoSocial {get; set;}
+
+        public string caminho {get; private set;} = "Database/Pessoajuridica.csv";
        
 
         public override float PagarImposto(float rendimento)
@@ -63,6 +65,47 @@ namespace ProjetoSenai.Classes
             }
             return false;
             
+        }
+
+        public void inserir(PessoaJuridica pj)
+        {
+            VerificarPstaArquivo(caminho);
+
+            string[] pjString = {$"{pj.nome}, {pj.cnpj}, {pj.razaoSocial}"};
+
+            File.AppendAllLines(caminho, pjString);
+        }
+
+        private void VerificarPstaArquivo(string caminho)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<PessoaJuridica> Ler()
+        {
+            List<PessoaJuridica> ListaPj = new List<PessoaJuridica>();
+
+            string[] linhas = File.ReadAllLines(caminho);
+
+            foreach(string cadaLinha in linhas)
+            {
+                string[] atributos = cadaLinha.Split(",");
+
+                PessoaJuridica cadaPj = new PessoaJuridica();
+
+                cadaPj.nome = atributos[0];
+                cadaPj.cnpj = atributos[1];
+                cadaPj.razaoSocial = atributos[2];
+                
+                
+                ListaPj.Add(cadaPj);
+            }
+            return ListaPj;
+        }
+
+        internal void Inserir(PessoaJuridica novaPj)
+        {
+            throw new NotImplementedException();
         }
     }
 }

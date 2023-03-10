@@ -1,5 +1,3 @@
-﻿using ProjetoSenai.Classes;
- 
 Console.Clear();
 
 Console.WriteLine(@$"
@@ -128,7 +126,7 @@ do
                                 Logradouro: {cadaItem.endereco.logradouro}
                                 Número: {cadaItem.endereco.numero}
                                 Complemento: {cadaItem.endereco.complemento}
-                                Endereço Comercial?:{((bool)(cadaItem.endereco.endComercial)?"Sim":"Não")}
+                                Endereço Comercial?:{((cadaItem.endereco.endComercial)?"Sim":"Não")}
                             ");
                             
                             Console.WriteLine($"Aperte 'Enter' para continuar");
@@ -242,7 +240,7 @@ do
                                 Logradouro: {cadaItem.endereco.logradouro}
                                 Número: {cadaItem.endereco.numero}
                                 Complemento: {cadaItem.endereco.complemento}
-                                Endereço Comercial?:{((bool)(cadaItem.endereco.endComercial)?"Sim":"Não")}
+                                Endereço Comercial?:{((cadaItem.endereco.endComercial)?"Sim":"Não")}
                             ");
                             
                             Console.WriteLine($"Aperte 'Enter' para continuar");
